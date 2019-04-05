@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9041 $ $Date:: 2018-05-04 #$ $Author: serge $
+// $Revision: 10773 $ $Date:: 2019-04-05 #$ $Author: serge $
 
 #include "get_value.h"         // self
 
@@ -35,6 +35,18 @@ void get_value_or_throw( std::string & res, const std::string & key, const gener
 }
 
 void get_value_or_throw_uint32( uint32_t & res, const std::string & key, const generic_request::Request & r )
+{
+    if( r.get_value_converted( key, res ) == false )
+        throw MalformedRequest( key + " is not defined or not numerical" );
+}
+
+void get_value_or_throw_float( float & res, const std::string & key, const generic_request::Request & r )
+{
+    if( r.get_value_converted( key, res ) == false )
+        throw MalformedRequest( key + " is not defined or not numerical" );
+}
+
+void get_value_or_throw_double( double & res, const std::string & key, const generic_request::Request & r )
 {
     if( r.get_value_converted( key, res ) == false )
         throw MalformedRequest( key + " is not defined or not numerical" );
