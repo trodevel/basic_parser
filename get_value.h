@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 9041 $ $Date:: 2018-05-04 #$ $Author: serge $
+// $Revision: 10846 $ $Date:: 2019-04-18 #$ $Author: serge $
 
 #include "generic_request/request.h"    // generic_request::Request
 
@@ -28,5 +28,7 @@ namespace basic_parser
 
 void get_value_or_throw( std::string & res, const std::string & key, const generic_request::Request & r );
 void get_value_or_throw_uint32( uint32_t & res, const std::string & key, const generic_request::Request & r );
+void get_value_or_throw_float( float & res, const std::string & key, const generic_request::Request & r );
+void get_value_or_throw_double( double & res, const std::string & key, const generic_request::Request & r );
 
 } // namespace basic_parser
