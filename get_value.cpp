@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 10773 $ $Date:: 2019-04-05 #$ $Author: serge $
+// $Revision: 11041 $ $Date:: 2019-05-03 #$ $Author: serge $
 
 #include "get_value.h"         // self
 
