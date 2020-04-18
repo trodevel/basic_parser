@@ -21,11 +21,27 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 11041 $ $Date:: 2019-05-03 #$ $Author: serge $
+// $Revision: 12929 $ $Date:: 2020-04-18 #$ $Author: serge $
 
 namespace basic_parser;
 
 require_once __DIR__.'/../php_snippets/nonascii_hex_codec.php';     // \utils\nonascii_hex_codec\decode()
+
+function parse_bool( & $resp, & $offset )
+{
+    // 4;
+
+    $v  = intval( $resp[ $offset++ ] );
+
+    $res = FALSE;
+
+    if( $v > 0 )
+    {
+        $res = TRUE;
+    }
+
+    return $res;
+}
 
 function parse_int( & $resp, & $offset )
 {
