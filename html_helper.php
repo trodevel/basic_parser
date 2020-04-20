@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12931 $ $Date:: 2020-04-18 #$ $Author: serge $
+// $Revision: 12935 $ $Date:: 2020-04-20 #$ $Author: serge $
 
 namespace basic_parser;
 
@@ -55,11 +55,43 @@ function to_html__string( $v )
     return $res;
 }
 
+function to_html__vector( $vect, $func )
+{
+    $res = "";
+
+    foreach( $vect as $v )
+    {
+        $val = $func( $v );
+
+        $res .=  $val;
+    }
+
+    return $res;
+}
+
+function to_html__map( $map, $func1, $func2 )
+{
+    $res = "";
+
+    foreach( $vect as $v_k => $v_v )
+    {
+        $key = $func1( $v_k );
+
+        $val = $func2( $v_v );
+
+        $res .=  "(" . $key . " -> " . $val . ")";
+    }
+
+    return $res;
+}
+
 function to_html_table( $header, $data )
 {
     $res = get_html_table( NULL, NULL, NULL, 'border="1" cellspacing="1" cellpadding="3"',
             get_html_table_tr( get_html_table_header_elems( $header ) ) .
             get_html_table_tr( $data ) );
+
+    return $res;
 }
 
 ?>
