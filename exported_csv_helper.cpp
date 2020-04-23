@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12719 $ $Date:: 2020-02-14 #$ $Author: serge $
+// $Revision: 12948 $ $Date:: 2020-04-23 #$ $Author: serge $
 
 // includes
 #include "exported_csv_helper.h"
@@ -82,6 +82,11 @@ std::ostream & write( std::ostream & os, const float r )
 }
 
 std::ostream & write( std::ostream & os, const double r )
+{
+    return utils::CsvHelper::write( os, r );
+}
+
+std::ostream & write( std::ostream & os, const char * & r )
 {
     return utils::CsvHelper::write( os, r );
 }
