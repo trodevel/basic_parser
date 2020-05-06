@@ -19,10 +19,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12773 $ $Date:: 2020-02-19 #$ $Author: serge $
+// $Revision: 12972 $ $Date:: 2020-05-07 #$ $Author: serge $
 
 // includes
-#include "exported_str_helper.h"
+#include "str_helper.h"
 
 namespace basic_parser
 {
@@ -86,6 +86,11 @@ std::ostream & write( std::ostream & os, const double r )
 }
 
 std::ostream & write( std::ostream & os, const std::string & r )
+{
+    os << r; return os;
+}
+
+std::ostream & write( std::ostream & os, const char * r )
 {
     os << r; return os;
 }

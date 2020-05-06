@@ -19,10 +19,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12773 $ $Date:: 2020-02-19 #$ $Author: serge $
+// $Revision: 12971 $ $Date:: 2020-05-07 #$ $Author: serge $
 
-#ifndef LIB_BASIC_PARSER__EXPORTED_STR_HELPER_H
-#define LIB_BASIC_PARSER__EXPORTED_STR_HELPER_H
+#ifndef LIB_BASIC_PARSER__STR_HELPER_H
+#define LIB_BASIC_PARSER__STR_HELPER_H
 
 // system includes
 #include <sstream>
@@ -47,6 +47,7 @@ std::ostream & write( std::ostream & os, const uint64_t r );
 std::ostream & write( std::ostream & os, const float r );
 std::ostream & write( std::ostream & os, const double r );
 std::ostream & write( std::ostream & os, const std::string & r );
+std::ostream & write( std::ostream & os, const char * r );
 
 template <class T>
 std::ostream & write( std::ostream & os, const std::vector<T> & r )
@@ -75,4 +76,4 @@ std::ostream & write( std::ostream & os, const std::map<U,V> & r )
 
 } // namespace basic_parser
 
-#endif // LIB_BASIC_PARSER__EXPORTED_STR_HELPER_H
+#endif // LIB_BASIC_PARSER__STR_HELPER_H
