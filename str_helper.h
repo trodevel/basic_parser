@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12980 $ $Date:: 2020-05-07 #$ $Author: serge $
+// $Revision: 12984 $ $Date:: 2020-05-07 #$ $Author: serge $
 
 #ifndef LIB_BASIC_PARSER__STR_HELPER_H
 #define LIB_BASIC_PARSER__STR_HELPER_H
@@ -51,6 +51,8 @@ std::ostream & write( std::ostream & os, const std::string & r );
 template <class T, class W >
 std::ostream & write_t( std::ostream & os, const std::vector<T> & r, W writer )
 {
+    os << "sz:" << r.size() << " ";
+
     for( auto & e : r )
     {
         writer( os, e );
@@ -62,6 +64,8 @@ std::ostream & write_t( std::ostream & os, const std::vector<T> & r, W writer )
 template <class U, class V, class W1, class W2>
 std::ostream & write_t( std::ostream & os, const std::map<U,V> & r, W1 writer1, W2 writer2 )
 {
+    os << "sz:" << r.size() << " ";
+
     for( auto & e : r )
     {
         writer1( os, e.first );
