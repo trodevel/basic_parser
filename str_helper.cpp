@@ -90,11 +90,6 @@ std::ostream & write( std::ostream & os, const std::string & r )
     os << r; return os;
 }
 
-std::ostream & write( std::ostream & os, const char * r )
-{
-    os << r; return os;
-}
-
 } // namespace str_helper
 
 } // namespace basic_parser

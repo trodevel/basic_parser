@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12971 $ $Date:: 2020-05-07 #$ $Author: serge $
+// $Revision: 12980 $ $Date:: 2020-05-07 #$ $Author: serge $
 
 #ifndef LIB_BASIC_PARSER__STR_HELPER_H
 #define LIB_BASIC_PARSER__STR_HELPER_H
@@ -47,26 +47,25 @@ std::ostream & write( std::ostream & os, const uint64_t r );
 std::ostream & write( std::ostream & os, const float r );
 std::ostream & write( std::ostream & os, const double r );
 std::ostream & write( std::ostream & os, const std::string & r );
-std::ostream & write( std::ostream & os, const char * r );
 
-template <class T>
-std::ostream & write( std::ostream & os, const std::vector<T> & r )
+template <class T, class W >
+std::ostream & write_t( std::ostream & os, const std::vector<T> & r, W writer )
 {
     for( auto & e : r )
     {
-        write( os, e );
+        writer( os, e );
     }
 
     return os;
 }
 
-template <class U, class V>
-std::ostream & write( std::ostream & os, const std::map<U,V> & r )
+template <class U, class V, class W1, class W2>
+std::ostream & write_t( std::ostream & os, const std::map<U,V> & r, W1 writer1, W2 writer2 )
 {
     for( auto & e : r )
     {
-        write( os, e.first );
-        write( os, e.second );
+        writer1( os, e.first );
+        writer2( os, e.second );
     }
 
     return os;
