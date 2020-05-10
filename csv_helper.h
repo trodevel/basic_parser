@@ -51,7 +51,7 @@ std::ostream & write( std::ostream & os, const std::string & r );
 template <class T, class W >
 std::ostream & write_t( std::ostream & os, const std::vector<T> & r, W writer )
 {
-    os << "sz:" << r.size() << " ";
+    write( os, r.size() );
 
     for( auto & e : r )
     {
@@ -64,7 +64,7 @@ std::ostream & write_t( std::ostream & os, const std::vector<T> & r, W writer )
 template <class U, class V, class W1, class W2>
 std::ostream & write_t( std::ostream & os, const std::map<U,V> & r, W1 writer1, W2 writer2 )
 {
-    os << "sz:" << r.size() << " ";
+    write( os, r.size() );
 
     for( auto & e : r )
     {
