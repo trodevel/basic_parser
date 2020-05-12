@@ -95,7 +95,7 @@ bool validate_t( const std::string & prefix, const std::vector<T> & r, W validat
     {
         auto prefix_idx = prefix + "[" + std::to_string( i ) + "]";
 
-        validator( prefix_id , e );
+        validator( prefix_idx , e );
 
         i++;
     }
