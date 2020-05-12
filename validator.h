@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13026 $ $Date:: 2020-05-13 #$ $Author: serge $
+// $Revision: 13027 $ $Date:: 2020-05-13 #$ $Author: serge $
 
 #ifndef LIB_BASIC_PARSER__VALIDATOR_H
 #define LIB_BASIC_PARSER__VALIDATOR_H
@@ -86,24 +86,37 @@ bool validate( const std::string & prefix, const T r, bool has_from, bool is_inc
 
 bool validate( const std::string & prefix, const std::string & r, bool has_from, bool is_inclusive_from, std::size_t from, bool has_to, bool is_inclusive_to, std::size_t to );
 
-template <class T>
-bool validate( const std::string & prefix, const std::vector<T> & r )
+template <class T, class W>
+bool validate_t( const std::string & prefix, const std::vector<T> & r, W validator )
 {
+    std::size_t i = 0;
+
     for( auto & e : r )
     {
-        validate( prefix, e );
+        auto prefix_idx = prefix + "[" + std::to_string( i ) + "]";
+
+        validator( prefix_id , e );
+
+        i++;
     }
 
     return true;
 }
 
-template <class U, class V>
-bool validate( const std::string & prefix, const std::map<U,V> & r )
+template <class U, class V, class W1, class W2>
+bool validate_t( const std::string & prefix, const std::map<U,V> & r, W1 validator1, W2 validator2 )
 {
+    std::size_t i = 0;
+
     for( auto & e : r )
     {
-        validate( prefix, e.first );
-        validate( prefix, e.second );
+        auto prefix_key = prefix + "[" + std::to_string( i ) + "].key";
+        auto prefix_val = prefix + "[" + std::to_string( i ) + "].val";
+
+        validator1( prefix_key, e.first );
+        validator2( prefix_val, e.second );
+
+        i++;
     }
 
     return true;
