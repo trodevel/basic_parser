@@ -19,7 +19,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13054 $ $Date:: 2020-05-15 #$ $Author: serge $
+// $Revision: 13056 $ $Date:: 2020-05-15 #$ $Author: serge $
+
+#ifndef LIB_BASIC_PARSER__PARSER_H
+#define LIB_BASIC_PARSER__PARSER_H
 
 #include "generic_request/request.h"    // generic_request::Request
 
@@ -45,18 +48,53 @@ void get_value_or_throw( float * res, const std::string & key, const generic_req
 void get_value_or_throw( double * res, const std::string & key, const generic_request::Request & r );
 void get_value_or_throw( std::string * res, const std::string & key, const generic_request::Request & r );
 
-template <class T>
-void get_value_or_throw( std::vector<T> * res, const std::string & key, const generic_request::Request & r )
+template <class T, class W>
+void get_value_or_throw_t( std::vector<T> * res, const std::string & prefix, const generic_request::Request & r, W parser )
 {
-    // TODO
+    std::size_t size;
+
+    get_value_or_throw( & size, prefix + ".SIZE", r );
+
+    if( size == 0 )
+        return;
+
+    res->resize( size );
+
+    for( std::size_t i = 0; i < size; ++i )
+    {
+        auto prefix_idx = prefix + "[" + std::to_string( i ) + "]";
+
+        parser( & res->at( i ), prefix_idx , r );
+    }
 }
 
-template <class U, class V>
-void get_value_or_throw( std::map<U,V> * res, const std::string & key, const generic_request::Request & r )
+template <class U, class V, class W1, class W2>
+void get_value_or_throw_t( std::map<U,V> * res, const std::string & prefix, const generic_request::Request & r, W1 parser1, W2 parser2 )
 {
-    // TODO
+    std::size_t size;
+
+    get_value_or_throw( & size, prefix + ".SIZE", r );
+
+    if( size == 0 )
+        return;
+
+    for( std::size_t i = 0; i < size; ++i )
+    {
+        auto prefix_key = prefix + "[" + std::to_string( i ) + "].key";
+        auto prefix_val = prefix + "[" + std::to_string( i ) + "].val";
+
+        U key;
+        V value;
+
+        parser1( & key, prefix_key, r );
+        parser2( & value, prefix_val, r );
+
+        res->insert( std::make_pair( key, value ) );
+    }
 }
 
 } // namespace parser
 
 } // namespace basic_parser
+
+#endif // LIB_BASIC_PARSER__PARSER_H
