@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13053 $ $Date:: 2020-05-15 #$ $Author: serge $
+// $Revision: 13054 $ $Date:: 2020-05-15 #$ $Author: serge $
 
 #include "generic_request/request.h"    // generic_request::Request
 
@@ -27,6 +27,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <map>
 
 namespace basic_parser
+{
+
+namespace parser
 {
 
 void get_value_or_throw( bool * res, const std::string & key, const generic_request::Request & r );
@@ -54,11 +57,6 @@ void get_value_or_throw( std::map<U,V> * res, const std::string & key, const gen
     // TODO
 }
 
-
-// old functions, kept for compatibility
-void get_value_or_throw( std::string & res, const std::string & key, const generic_request::Request & r );
-void get_value_or_throw_uint32( uint32_t & res, const std::string & key, const generic_request::Request & r );
-void get_value_or_throw_float( float & res, const std::string & key, const generic_request::Request & r );
-void get_value_or_throw_double( double & res, const std::string & key, const generic_request::Request & r );
+} // namespace parser
 
 } // namespace basic_parser

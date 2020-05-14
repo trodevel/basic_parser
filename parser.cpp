@@ -19,13 +19,16 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13053 $ $Date:: 2020-05-15 #$ $Author: serge $
+// $Revision: 13054 $ $Date:: 2020-05-15 #$ $Author: serge $
 
 #include "parser.h"         // self
 
 #include "malformed_request.h"      // MalformedRequest
 
 namespace basic_parser
+{
+
+namespace parser
 {
 
 void get_value_or_throw( bool * res, const std::string & key, const generic_request::Request & r )
@@ -124,28 +127,6 @@ void get_value_or_throw( std::string * res, const std::string & key, const gener
         throw MalformedRequest( key + " is not defined" );
 }
 
-void get_value_or_throw( std::string & res, const std::string & key, const generic_request::Request & r )
-{
-    if( r.get_value( key, res ) == false )
-        throw MalformedRequest( key + " is not defined" );
-}
-
-void get_value_or_throw_uint32( uint32_t & res, const std::string & key, const generic_request::Request & r )
-{
-    if( r.get_value_converted( key, res ) == false )
-        throw MalformedRequest( key + " is not defined or not numerical" );
-}
-
-void get_value_or_throw_float( float & res, const std::string & key, const generic_request::Request & r )
-{
-    if( r.get_value_converted( key, res ) == false )
-        throw MalformedRequest( key + " is not defined or not numerical" );
-}
-
-void get_value_or_throw_double( double & res, const std::string & key, const generic_request::Request & r )
-{
-    if( r.get_value_converted( key, res ) == false )
-        throw MalformedRequest( key + " is not defined or not numerical" );
-}
+} // namespace parser
 
 } // namespace basic_parser
