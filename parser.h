@@ -1,6 +1,6 @@
 /*
 
-Getter.
+Parser.
 
 Copyright (C) 2018 Sergey Kolevatov
 
@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12752 $ $Date:: 2020-02-15 #$ $Author: serge $
+// $Revision: 13053 $ $Date:: 2020-05-15 #$ $Author: serge $
 
 #include "generic_request/request.h"    // generic_request::Request
 

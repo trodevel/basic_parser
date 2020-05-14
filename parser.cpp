@@ -1,6 +1,6 @@
 /*
 
-Getter.
+Parser.
 
 Copyright (C) 2018 Sergey Kolevatov
 
@@ -19,9 +19,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12751 $ $Date:: 2020-02-15 #$ $Author: serge $
+// $Revision: 13053 $ $Date:: 2020-05-15 #$ $Author: serge $
 
-#include "exported_parser.h"         // self
+#include "parser.h"         // self
 
 #include "malformed_request.h"      // MalformedRequest
 
