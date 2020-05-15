@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13053 $ $Date:: 2020-05-15 #$ $Author: serge $
+// $Revision: 13071 $ $Date:: 2020-05-15 #$ $Author: serge $
 
 #ifndef LIB_BASIC_PARSER__VALIDATOR_H
 #define LIB_BASIC_PARSER__VALIDATOR_H
@@ -87,8 +87,10 @@ bool validate( const std::string & prefix, const T r, bool has_from, bool is_inc
 bool validate( const std::string & prefix, const std::string & r, bool has_from, bool is_inclusive_from, std::size_t from, bool has_to, bool is_inclusive_to, std::size_t to );
 
 template <class T, class W>
-bool validate_t( const std::string & prefix, const std::vector<T> & r, W validator )
+bool validate_t( const std::string & prefix, const std::vector<T> & r, W validator, bool has_from = false, bool is_inclusive_from = false, std::size_t from = 0, bool has_to = false, bool is_inclusive_to = false, std::size_t to = 0 )
 {
+    validate( prefix + ".SIZE", r.size(), has_from, is_inclusive_from, from, has_to, is_inclusive_to, to );
+
     std::size_t i = 0;
 
     for( auto & e : r )
@@ -104,8 +106,10 @@ bool validate_t( const std::string & prefix, const std::vector<T> & r, W validat
 }
 
 template <class U, class V, class W1, class W2>
-bool validate_t( const std::string & prefix, const std::map<U,V> & r, W1 validator1, W2 validator2 )
+bool validate_t( const std::string & prefix, const std::map<U,V> & r, W1 validator1, W2 validator2, bool has_from = false, bool is_inclusive_from = false, std::size_t from = 0, bool has_to = false, bool is_inclusive_to = false, std::size_t to = 0 )
 {
+    validate( prefix + ".SIZE", r.size(), has_from, is_inclusive_from, from, has_to, is_inclusive_to, to );
+
     std::size_t i = 0;
 
     for( auto & e : r )
