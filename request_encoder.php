@@ -21,9 +21,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13103 $ $Date:: 2020-05-21 #$ $Author: serge $
+// $Revision: 13111 $ $Date:: 2020-05-21 #$ $Author: serge $
 
 namespace basic_parser;
+
+require_once __DIR__.'/../php_snippets/hex_codec.php';     // \utils\hex_codec\encode()
 
 function to_generic_request__bool( $name, $v )
 {
@@ -54,7 +56,16 @@ function to_generic_request__float( $name, $v )
 
 function to_generic_request__string( $name, $v )
 {
-    $res = "$name=$v";
+    $res = "";
+
+    if( \utils\hex_codec\has_non_ascii( $v ) )
+    {
+        $res = "${name}:X=" . \utils\hex_codec\encode( $v );
+    }
+    else
+    {
+        $res = "$name=$v";
+    }
 
     return $res;
 }
