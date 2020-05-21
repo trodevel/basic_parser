@@ -21,57 +21,57 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13102 $ $Date:: 2020-05-20 #$ $Author: serge $
+// $Revision: 13103 $ $Date:: 2020-05-21 #$ $Author: serge $
 
 namespace basic_parser;
 
-function to_generic_request__bool( $key, $v )
+function to_generic_request__bool( $name, $v )
 {
     $v_c = ( $v ) ? "1" : "0";
 
-    $res = "$key=${v_c}";
+    $res = "$name=${v_c}";
 
     return $res;
 }
 
-function to_generic_request__int( $key, $v )
+function to_generic_request__int( $name, $v )
 {
     $v_c = $v + 0;
 
-    $res = "$key=${v_c}";
+    $res = "$name=${v_c}";
 
     return $res;
 }
 
-function to_generic_request__float( $key, $v )
+function to_generic_request__float( $name, $v )
 {
     $v_c = $v + 0.0;
 
-    $res = "$key=${v_c}";
+    $res = "$name=${v_c}";
 
     return $res;
 }
 
-function to_generic_request__string( $key, $v )
+function to_generic_request__string( $name, $v )
 {
-    $res = "$key=$v";
+    $res = "$name=$v";
 
     return $res;
 }
 
-function to_generic_request__vector( $key, $vect, $func )
+function to_generic_request__vector( $name, $vect, $func )
 {
     $res = "";
 
     $size = sizeof( $vect );
 
-    $res .= to_generic_request__int( $key . ".SIZE", $size );
+    $res .= to_generic_request__int( $name . ".SIZE", $size );
 
     $i = 0;
 
     foreach( $vect as $v )
     {
-        $val = $func( $key . "[" . $i . "]", $v );
+        $val = $func( $name . "[" . $i . "]", $v );
 
         $res .= "&" . $val;
 
@@ -81,21 +81,21 @@ function to_generic_request__vector( $key, $vect, $func )
     return $res;
 }
 
-function to_generic_request__map( $key, $map, $func1, $func2 )
+function to_generic_request__map( $name, $map, $func1, $func2 )
 {
     $res = "";
 
     $size = sizeof( $map );
 
-    $res .= to_generic_request__int( $key . ".SIZE", $size );
+    $res .= to_generic_request__int( $name . ".SIZE", $size );
 
     $i = 0;
 
     foreach( $vect as $v_k => $v_v )
     {
-        $v_1 = $func1( $key . "[" . $i . "].key", $v_k );
+        $v_1 = $func1( $name . "[" . $i . "].key", $v_k );
 
-        $v_2 = $func2( $key . "[" . $i . "].val", $v_v );
+        $v_2 = $func2( $name . "[" . $i . "].val", $v_v );
 
         $res .= "&" . $v_1 . "&" . $v_2;
 
