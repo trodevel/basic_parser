@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13210 $ $Date:: 2020-06-08 #$ $Author: serge $
+// $Revision: 13218 $ $Date:: 2020-06-09 #$ $Author: serge $
 
 namespace basic_parser;
 
@@ -48,7 +48,8 @@ function create_dummy__float()
 
 function create_dummy__string()
 {
-    $res = substr( md5( rand() ), 0, 7 );
+    $length = rand( 1, 20 );
+    $res = substr(str_shuffle(str_repeat($x='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_ !@#$%^&*()_-+=){}"|,./<>?:;', ceil($length/strlen($x)) )),1,$length);
 
     return $res;
 }
