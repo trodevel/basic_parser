@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13227 $ $Date:: 2020-06-09 #$ $Author: serge $
+// $Revision: 13228 $ $Date:: 2020-06-09 #$ $Author: serge $
 
 namespace basic_parser;
 
@@ -50,7 +50,7 @@ function to_html__float( $v )
 
 function to_html__string( $v )
 {
-    $res = get_html_table_td( $v );
+    $res = get_html_table_td( htmlentities( $v ) );
 
     return $res;
 }
