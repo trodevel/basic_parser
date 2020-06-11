@@ -3,11 +3,18 @@
 
 #include "parser.h"
 #include "csv_helper.h"
+#include "str_helper.h"
 #include "dummy_creator.h"
 
 void test_vector_1()
 {
     auto res = basic_parser::create_dummy__vector<std::uint16_t,std::uint16_t(*)()>( & basic_parser::create_dummy__uint16 );
+
+    std::ostringstream os;
+
+    basic_parser::str_helper::write_t( os, res, static_cast<std::ostream & (*)( std::ostream &, const std::uint16_t )>( &basic_parser::str_helper::write ) );
+
+    std::cout << "test_vector_1: " << os.str() << std::endl;
 }
 
 int main()
