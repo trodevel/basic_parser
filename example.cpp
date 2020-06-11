@@ -28,6 +28,17 @@ void test_vector_2()
     std::cout << "test_vector_2: " << os.str() << std::endl;
 }
 
+void test_map_1()
+{
+    auto res = basic_parser::create_dummy__map<std::uint16_t,std::string,std::uint16_t(*)(),std::string(*)()>( & basic_parser::create_dummy__uint16, & basic_parser::create_dummy__string );
+
+    std::ostringstream os;
+
+    basic_parser::str_helper::write_t( os, res, static_cast<std::ostream & (*)( std::ostream &, const std::uint16_t )>( &basic_parser::str_helper::write ), static_cast<std::ostream & (*)( std::ostream &, const std::string & )>( &basic_parser::str_helper::write ) );
+
+    std::cout << "test_map_1: " << os.str() << std::endl;
+}
+
 int main()
 {
     std::ostringstream os;
@@ -53,6 +64,7 @@ int main()
 
     test_vector_1();
     test_vector_2();
+    test_map_1();
 
     return 0;
 }
