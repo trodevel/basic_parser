@@ -5,6 +5,11 @@
 #include "csv_helper.h"
 #include "dummy_creator.h"
 
+void test_vector_1()
+{
+    auto res = basic_parser::create_dummy__vector<std::uint16_t,std::uint16_t(*)()>( & basic_parser::create_dummy__uint16 );
+}
+
 int main()
 {
     std::ostringstream os;
@@ -27,6 +32,8 @@ int main()
     std::cout << "dummy_string: " << basic_parser::create_dummy__string() << std::endl;
     std::cout << "dummy_float: " << basic_parser::create_dummy__float() << std::endl;
     std::cout << "dummy_double: " << basic_parser::create_dummy__double() << std::endl;
+
+    test_vector_1();
 
     return 0;
 }
