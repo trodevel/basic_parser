@@ -19,12 +19,13 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13242 $ $Date:: 2020-06-11 #$ $Author: serge $
+// $Revision: 13244 $ $Date:: 2020-06-11 #$ $Author: serge $
 
 #include "dummy_creator.h"
 
 #include <limits>          // std::numeric_limits<T>::max
 #include <cstdlib>         // rand()
+#include <algorithm>       // std::generate_n
 
 namespace basic_parser
 {
@@ -32,7 +33,7 @@ namespace basic_parser
 template<class T>
 T get_rand()
 {
-    auto res = static_cast<T>( rand() % std::numeric_limits<T>::max );
+    auto res = static_cast<T>( std::rand() % static_cast<int>( std::numeric_limits<T>::max() ) );
 
     return res;
 }
