@@ -17,6 +17,17 @@ void test_vector_1()
     std::cout << "test_vector_1: " << os.str() << std::endl;
 }
 
+void test_vector_2()
+{
+    auto res = basic_parser::create_dummy__vector<std::string,std::string(*)()>( & basic_parser::create_dummy__string );
+
+    std::ostringstream os;
+
+    basic_parser::str_helper::write_t( os, res, static_cast<std::ostream & (*)( std::ostream &, const std::string & )>( &basic_parser::str_helper::write ) );
+
+    std::cout << "test_vector_2: " << os.str() << std::endl;
+}
+
 int main()
 {
     std::ostringstream os;
@@ -41,6 +52,7 @@ int main()
     std::cout << "dummy_double: " << basic_parser::create_dummy__double() << std::endl;
 
     test_vector_1();
+    test_vector_2();
 
     return 0;
 }
