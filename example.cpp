@@ -8,7 +8,7 @@
 
 void test_vector_1()
 {
-    auto res = basic_parser::dummy::create__vector<std::uint16_t,std::uint16_t(*)()>( & basic_parser::dummy::create__uint16 );
+    auto res = basic_parser::dummy::create__vector_t<std::uint16_t,std::uint16_t(*)()>( & basic_parser::dummy::create__uint16 );
 
     std::ostringstream os;
 
@@ -19,7 +19,7 @@ void test_vector_1()
 
 void test_vector_2()
 {
-    auto res = basic_parser::dummy::create__vector<std::string,std::string(*)()>( & basic_parser::dummy::create__string );
+    auto res = basic_parser::dummy::create__vector_t<std::string,std::string(*)()>( & basic_parser::dummy::create__string );
 
     std::ostringstream os;
 
@@ -30,7 +30,7 @@ void test_vector_2()
 
 void test_map_1()
 {
-    auto res = basic_parser::dummy::create__map<std::uint16_t,std::string,std::uint16_t(*)(),std::string(*)()>( & basic_parser::dummy::create__uint16, & basic_parser::dummy::create__string );
+    auto res = basic_parser::dummy::create__map_t<std::uint16_t,std::string,std::uint16_t(*)(),std::string(*)()>( & basic_parser::dummy::create__uint16, & basic_parser::dummy::create__string );
 
     std::ostringstream os;
 
