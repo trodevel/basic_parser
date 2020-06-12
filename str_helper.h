@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13248 $ $Date:: 2020-06-12 #$ $Author: serge $
+// $Revision: 13251 $ $Date:: 2020-06-12 #$ $Author: serge $
 
 #ifndef LIB_BASIC_PARSER__STR_HELPER_H
 #define LIB_BASIC_PARSER__STR_HELPER_H
@@ -69,10 +69,11 @@ std::ostream & write_t( std::ostream & os, const std::map<U,V> & r, W1 writer1, 
 
     for( auto & e : r )
     {
-        os << " ";
+        os << " (";
         writer1( os, e.first );
-        os << " ";
+        os << " -> ";
         writer2( os, e.second );
+        os << ")";
     }
 
     return os;
