@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13244 $ $Date:: 2020-06-11 #$ $Author: serge $
+// $Revision: 13252 $ $Date:: 2020-06-12 #$ $Author: serge $
 
 #include "dummy_creator.h"
 
@@ -30,6 +30,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 namespace basic_parser
 {
 
+namespace dummy
+{
+
 template<class T>
 T get_rand()
 {
@@ -38,70 +41,70 @@ T get_rand()
     return res;
 }
 
-bool create_dummy__bool()
+bool create__bool()
 {
     auto res = get_rand<bool>();
 
     return res;
 }
 
-std::uint8_t create_dummy__uint8()
+std::uint8_t create__uint8()
 {
     auto res = get_rand<uint8_t>();
 
     return res;
 }
 
-std::uint16_t create_dummy__uint16()
+std::uint16_t create__uint16()
 {
     auto res = get_rand<uint16_t>();
 
     return res;
 }
 
-std::uint32_t create_dummy__uint32()
+std::uint32_t create__uint32()
 {
     auto res = get_rand<uint32_t>();
 
     return res;
 }
 
-std::uint64_t create_dummy__uint64()
+std::uint64_t create__uint64()
 {
     auto res = get_rand<uint64_t>();
 
     return res;
 }
 
-std::int8_t create_dummy__int8()
+std::int8_t create__int8()
 {
     auto res = get_rand<int8_t>();
 
     return res;
 }
 
-std::int16_t create_dummy__int16()
+std::int16_t create__int16()
 {
     auto res = get_rand<int16_t>();
 
     return res;
 }
 
-std::int32_t create_dummy__int32()
+std::int32_t create__int32()
 {
     auto res = get_rand<int32_t>();
 
     return res;
 }
 
-std::int64_t create_dummy__int64()
+std::int64_t create__int64()
 {
     auto res = get_rand<int64_t>();
 
     return res;
 }
 
-float create_dummy__float()
+float create__float()
 {
     auto X = 256;
 
@@ -110,7 +113,7 @@ float create_dummy__float()
     return res;
 }
 
-double create_dummy__double()
+double create__double()
 {
     auto X = 256;
 
@@ -136,7 +139,7 @@ std::string random_string( std::size_t length )
     return str;
 }
 
-std::string create_dummy__string()
+std::string create__string()
 {
     auto length = 1 + rand() % 20;
 
@@ -144,5 +147,7 @@ std::string create_dummy__string()
 
     return res;
 }
+
+} // namespace dummy
 
 } // namespace basic_parser

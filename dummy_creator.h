@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13242 $ $Date:: 2020-06-11 #$ $Author: serge $
+// $Revision: 13252 $ $Date:: 2020-06-12 #$ $Author: serge $
 
 #ifndef LIB_BASIC_PARSER__DUMMY_CREATOR_H
 #define LIB_BASIC_PARSER__DUMMY_CREATOR_H
@@ -33,25 +33,28 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 namespace basic_parser
 {
 
-bool create_dummy__bool();
-std::uint8_t create_dummy__uint8();
-std::uint16_t create_dummy__uint16();
-std::uint32_t create_dummy__uint32();
-std::uint64_t create_dummy__uint64();
-std::int8_t create_dummy__int8();
-std::int16_t create_dummy__int16();
-std::int32_t create_dummy__int32();
-std::int64_t create_dummy__int64();
-float create_dummy__float();
-double create_dummy__double();
-std::string create_dummy__string();
+namespace dummy
+{
+
+bool create__bool();
+std::uint8_t create__uint8();
+std::uint16_t create__uint16();
+std::uint32_t create__uint32();
+std::uint64_t create__uint64();
+std::int8_t create__int8();
+std::int16_t create__int16();
+std::int32_t create__int32();
+std::int64_t create__int64();
+float create__float();
+double create__double();
+std::string create__string();
 
 template <class T, class W>
-std::vector<T> create_dummy__vector( W creator )
+std::vector<T> create__vector( W creator )
 {
     std::vector<T> res;
 
-    std::size_t size = create_dummy__uint8();
+    std::size_t size = create__uint8();
 
     for( std::size_t i = 0; i < size; ++i )
     {
@@ -64,11 +67,11 @@ std::vector<T> create_dummy__vector( W creator )
 }
 
 template <class U, class V, class W1, class W2>
-std::map<U,V> create_dummy__map( W1 creator1, W2 creator2 )
+std::map<U,V> create__map( W1 creator1, W2 creator2 )
 {
     std::map<U,V> res;
 
-    std::size_t size = create_dummy__uint8();
+    std::size_t size = create__uint8();
 
     for( std::size_t i = 0; i < size; ++i )
     {
@@ -80,6 +83,8 @@ std::map<U,V> create_dummy__map( W1 creator1, W2 creator2 )
 
     return res;
 }
+
+} // namespace dummy
 
 } // namespace basic_parser
 
