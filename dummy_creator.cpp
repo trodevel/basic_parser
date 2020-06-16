@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13274 $ $Date:: 2020-06-16 #$ $Author: serge $
+// $Revision: 13276 $ $Date:: 2020-06-16 #$ $Author: serge $
 
 #include "dummy_creator.h"
 
@@ -47,7 +47,7 @@ T get_rand()
 
 bool create__bool()
 {
-    auto res = get_rand<bool>();
+    auto res = get_rand<uint8_t>() % 2;
 
     return res;
 }
