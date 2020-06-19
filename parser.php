@@ -21,13 +21,13 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 12929 $ $Date:: 2020-04-18 #$ $Author: serge $
+// $Revision: 13296 $ $Date:: 2020-06-19 #$ $Author: serge $
 
 namespace basic_parser;
 
 require_once __DIR__.'/../php_snippets/nonascii_hex_codec.php';     // \utils\nonascii_hex_codec\decode()
 
-function parse_bool( & $resp, & $offset )
+function parse__bool( & $resp, & $offset )
 {
     // 4;
 
@@ -43,7 +43,7 @@ function parse_bool( & $resp, & $offset )
     return $res;
 }
 
-function parse_int( & $resp, & $offset )
+function parse__int( & $resp, & $offset )
 {
     // 4;
 
@@ -52,7 +52,7 @@ function parse_int( & $resp, & $offset )
     return $res;
 }
 
-function parse_float( & $resp, & $offset )
+function parse__float( & $resp, & $offset )
 {
     // 4.73;
 
@@ -61,7 +61,7 @@ function parse_float( & $resp, & $offset )
     return $res;
 }
 
-function parse_string( & $resp, & $offset )
+function parse__string( & $resp, & $offset )
 {
     // Hello,=20world;
 
@@ -70,7 +70,7 @@ function parse_string( & $resp, & $offset )
     return $res;
 }
 
-function parse_enc_string( & $resp, & $offset )
+function parse__enc_string( & $resp, & $offset )
 {
     // Hello,=20world;
 
@@ -79,7 +79,7 @@ function parse_enc_string( & $resp, & $offset )
     return $res;
 }
 
-function parse_MapStrToStr( & $resp, & $offset )
+function parse__MapStrToStr( & $resp, & $offset )
 {
     // 4;FIRSTNAME;R=C3=BCdiger;NAME;Schultz;TEXT;Hello,=20world;TYPE;Car=20Inspection;
 
@@ -100,7 +100,7 @@ function parse_MapStrToStr( & $resp, & $offset )
     return $res;
 }
 
-function parse_VectorInt( & $resp, & $offset )
+function parse__VectorInt( & $resp, & $offset )
 {
     // 3;121212;232323;454545;
 
