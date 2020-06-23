@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13218 $ $Date:: 2020-06-09 #$ $Author: serge $
+// $Revision: 13304 $ $Date:: 2020-06-23 #$ $Author: serge $
 
 namespace basic_parser;
 
@@ -57,6 +57,15 @@ function create_dummy__string()
 function create_dummy__vector( $func )
 {
     $res = array();
+
+    $size = rand( 1, 20 );
+
+    for( $i = 0; $i < $size; $i++ )
+    {
+        $v = $func();
+
+        array_push( $res, $v );
+    }
 
     return $res;
 }
