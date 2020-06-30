@@ -21,13 +21,16 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13203 $ $Date:: 2020-06-06 #$ $Author: serge $
+// $Revision: 13327 $ $Date:: 2020-06-30 #$ $Author: serge $
 
 namespace basic_parser;
 
 // Object
 class Object
 {
+    function __construct()
+    {
+    }
 };
 
 # namespace_end basic_parser
