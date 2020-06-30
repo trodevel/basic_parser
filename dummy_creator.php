@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13330 $ $Date:: 2020-06-30 #$ $Author: serge $
+// $Revision: 13332 $ $Date:: 2020-06-30 #$ $Author: serge $
 
 namespace basic_parser;
 
@@ -32,7 +32,28 @@ function create_dummy__bool()
     return $res;
 }
 
-function create_dummy__int()
+function create_dummy__int8()
+{
+    $res = rand() % 256;
+
+    return $res;
+}
+
+function create_dummy__int16()
+{
+    $res = rand() % 32768;
+
+    return $res;
+}
+
+function create_dummy__int32()
+{
+    $res = rand() % 65536;
+
+    return $res;
+}
+
+function create_dummy__int64()
 {
     $res = rand();
 
