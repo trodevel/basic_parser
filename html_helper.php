@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13229 $ $Date:: 2020-06-10 #$ $Author: serge $
+// $Revision: 13324 $ $Date:: 2020-06-30 #$ $Author: serge $
 
 namespace basic_parser;
 
@@ -74,7 +74,7 @@ function to_html__map( $map, $func1, $func2 )
 {
     $res = "";
 
-    foreach( $vect as $v_k => $v_v )
+    foreach( $map as $v_k => $v_v )
     {
         $key = $func1( $v_k );
 
