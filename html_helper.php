@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13324 $ $Date:: 2020-06-30 #$ $Author: serge $
+// $Revision: 13334 $ $Date:: 2020-07-01 #$ $Author: serge $
 
 namespace basic_parser;
 
@@ -58,14 +58,18 @@ function to_html__string( $v )
 
 function to_html__vector( $vect, $func )
 {
-    $res = "";
+    $rows = "";
 
     foreach( $vect as $v )
     {
         $val = $func( $v );
 
-        $res .=  $val;
+        $row_data = get_html_table_tr( get_html_table_td( $val ) );
+
+        $rows .=  $row_data;
     }
+
+    $res = get_html_table( NULL, NULL, NULL, 'border="1" cellspacing="1" cellpadding="3"', $rows );
 
     return $res;
 }
