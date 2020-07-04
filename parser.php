@@ -21,10 +21,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13296 $ $Date:: 2020-06-19 #$ $Author: serge $
+// $Revision: 13361 $ $Date:: 2020-07-04 #$ $Author: serge $
 
 namespace basic_parser;
 
+require_once __DIR__.'/../php_snippets/convert_csv_to_array.php';   // \convert_csv_to_array()
 require_once __DIR__.'/../php_snippets/nonascii_hex_codec.php';     // \utils\nonascii_hex_codec\decode()
 
 function parse__bool( & $resp, & $offset )
@@ -120,6 +121,37 @@ function parse__VectorInt( & $resp, & $offset )
     }
 
     return $res;
+}
+
+class Parser
+{
+    public static function parse( $arr )
+    {
+        echo "TRACE: \\basic_parser\\Parser::parse()\n";
+
+        if( sizeof( $arr ) < 1 )
+            return false;
+
+        $csv_arr = \convert_csv_to_array( $arr );
+
+        return static::parse_csv_array( $csv_arr );
+    }
+
+    protected static function parse_csv_array( $csv_arr )
+    {
+        echo "TRACE: \\basic_parser\\Parser::parse_csv_array()\n";
+
+        return NULL;
+    }
+
+    protected static function create_parse_error()
+    {
+        // ERROR_RESPONSE;1;authentication failed;
+
+        $res = new ErrorResponse( ErrorResponse::PARSE_ERROR, "cannot parse response" );
+
+        return $res;
+    }
 }
 
 ?>
