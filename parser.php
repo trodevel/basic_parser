@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13363 $ $Date:: 2020-07-04 #$ $Author: serge $
+// $Revision: 13364 $ $Date:: 2020-07-04 #$ $Author: serge $
 
 namespace basic_parser;
 
@@ -132,7 +132,7 @@ class Parser
         //var_dump( $arr );
 
         if( sizeof( $arr ) < 1 )
-            return false;
+            return NULL;
 
         $csv_arr = \convert_csv_to_array( $arr );
 
