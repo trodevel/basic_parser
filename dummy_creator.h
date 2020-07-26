@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13252 $ $Date:: 2020-06-12 #$ $Author: serge $
+// $Revision: 13339 $ $Date:: 2020-07-02 #$ $Author: serge $
 
 #ifndef LIB_BASIC_PARSER__DUMMY_CREATOR_H
 #define LIB_BASIC_PARSER__DUMMY_CREATOR_H
@@ -50,7 +50,7 @@ double create__double();
 std::string create__string();
 
 template <class T, class W>
-std::vector<T> create__vector( W creator )
+std::vector<T> create__vector_t( W creator )
 {
     std::vector<T> res;
 
@@ -67,7 +67,7 @@ std::vector<T> create__vector( W creator )
 }
 
 template <class U, class V, class W1, class W2>
-std::map<U,V> create__map( W1 creator1, W2 creator2 )
+std::map<U,V> create__map_t( W1 creator1, W2 creator2 )
 {
     std::map<U,V> res;
 

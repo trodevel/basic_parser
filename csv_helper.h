@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13022 $ $Date:: 2020-05-12 #$ $Author: serge $
+// $Revision: 13339 $ $Date:: 2020-07-02 #$ $Author: serge $
 
 #ifndef LIB_BASIC_PARSER__CSV_HELPER_H
 #define LIB_BASIC_PARSER__CSV_HELPER_H

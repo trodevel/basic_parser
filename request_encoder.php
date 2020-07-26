@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13111 $ $Date:: 2020-05-21 #$ $Author: serge $
+// $Revision: 13415 $ $Date:: 2020-07-27 #$ $Author: serge $
 
 namespace basic_parser;
 
@@ -102,7 +102,7 @@ function to_generic_request__map( $name, $map, $func1, $func2 )
 
     $i = 0;
 
-    foreach( $vect as $v_k => $v_v )
+    foreach( $map as $v_k => $v_v )
     {
         $v_1 = $func1( $name . "[" . $i . "].key", $v_k );
 

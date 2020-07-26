@@ -19,7 +19,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13199 $ $Date:: 2020-06-06 #$ $Author: serge $
+// $Revision: 13339 $ $Date:: 2020-07-02 #$ $Author: serge $
 
 #ifndef LIB_BASIC_PARSER__OBJECT_H
 #define LIB_BASIC_PARSER__OBJECT_H
