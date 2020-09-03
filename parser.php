@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13369 $ $Date:: 2020-07-06 #$ $Author: serge $
+// $Revision: 13641 $ $Date:: 2020-09-04 #$ $Author: serge $
 
 namespace basic_parser;
 
@@ -127,7 +127,7 @@ class Parser
 {
     public static function parse( $arr )
     {
-        echo "TRACE: \\basic_parser\\Parser::parse()\n";
+        //echo "TRACE: \\basic_parser\\Parser::parse()\n";
 
         //var_dump( $arr );
 
