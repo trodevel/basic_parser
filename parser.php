@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 */
 
-// $Revision: 13641 $ $Date:: 2020-09-04 #$ $Author: serge $
+// $Revision: 13718 $ $Date:: 2020-09-05 #$ $Author: serge $
 
 namespace basic_parser;
 
@@ -76,6 +76,22 @@ function parse__enc_string( & $resp, & $offset )
     // Hello,=20world;
 
     $res  = \utils\nonascii_hex_codec\decode( $resp[ $offset++ ] );
+
+    return $res;
+}
+
+function parse__vector(  & $resp, & $offset, $func )
+{
+    $res = array();
+
+    $size = parse__int( $resp, $offset );
+
+    for( $i = 0; $i < $size; $i++ )
+    {
+        $val = $func( $resp, $offset );
+
+        array_push( $res, $val );
+    }
 
     return $res;
 }
